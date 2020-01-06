@@ -2,9 +2,9 @@ package models
 
 import "fmt"
 
-// type manipulate interface {
-// 	getFullName() string
-// }
+type manipulate interface {
+	GetFullName() string
+}
 
 //Book Struct(Model)
 type Book struct {
@@ -23,13 +23,14 @@ type Author struct {
 	Lastname  string `json:"lastname"`
 }
 
-func (a Author) getFullName() string {
+//GetFullName ...
+func (a Author) GetFullName() string {
 	return a.Firstname + "_" + a.Lastname
 }
 
 func init() {
 	fmt.Println("hello from MOdels")
-	//Mock Data - @todo - imp DB
+	//@todo - imp DB
 	Books = append(Books, Book{ID: "1", Name: "The Witcher", Title: "Ch-1", Author: &Author{Firstname: " Andrzej", Lastname: "Sapkowski"}})
 	Books = append(Books, Book{ID: "2", Name: "LOR", Title: "Ch-1", Author: &Author{Firstname: " J.R.R", Lastname: "Tolkiens"}})
 }
